@@ -17,14 +17,16 @@
     body{margin:0;line-height:1.55;color:var(--text);background:var(--bg);display:flex;flex-direction:column;min-height:100vh}
     header{background:var(--brand);color:#fff;padding:1.4rem 1.6rem;box-shadow:0 2px 6px rgba(0,0,0,.15)}
     header h1{margin:0;font-size:1.55rem;font-weight:600;letter-spacing:.3px}
-    main{flex:1;padding:2.2rem 1.6rem;max-width:900px;margin:0 auto}
-    main p{max-width:680px}
-    ul{list-style:none;padding:0;margin:2rem 0 0 0}
-    li{margin-bottom:1.2rem}
-    a.policy{display:inline-block;padding:.8rem 1.15rem;border:2px solid var(--brand);border-radius:.45rem;color:var(--brand);text-decoration:none;font-weight:600;transition:.2s ease-in-out;background:#fff}
-    a.policy:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
-    /* acknowledgement form */
-    section#ack{margin-top:3rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:1.8rem;max-width:680px}
+    main{flex:1;padding:2.2rem 1.6rem;max-width:980px;margin:0 auto}
+    main p{max-width:760px}
+    section.category{margin-top:3rem}
+    section.category h2{margin:.2rem 0 1rem 0;font-size:1.35rem;color:var(--brand)}
+    ul.docs{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem}
+    ul.docs li{flex:1 1 280px}
+    a.doc{display:block;padding:.75rem 1.05rem;border:2px solid var(--brand);border-radius:.45rem;color:var(--brand);text-decoration:none;font-weight:600;transition:.2s ease-in-out;background:#fff;text-align:center}
+    a.doc:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+    /* acknowledgement */
+    section#ack{margin-top:4rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:1.8rem;max-width:760px}
     section#ack h2{margin-top:0;color:var(--brand)}
     label{display:block;margin:.9rem 0;font-weight:600}
     input[type="text"],input[type="email"]{width:100%;padding:.55rem;border:1px solid #aaa;border-radius:.3rem}
@@ -35,28 +37,57 @@
 </head>
 <body>
   <header>
-    <h1>Rightful Return PMA — Legal Documents</h1>
+    <h1>Rightful Return PMA — Legal & Compliance Library</h1>
   </header>
   <main>
-    <p>Below you will find the authoritative versions of all governing documents for membership in the Rightful Return Private Membership Association. Each document is maintained on a version‑controlled ledger for maximum transparency. Please review in full and consult independent counsel prior to joining.</p>
-    <ul>
-      <li><a class="policy" href="pma-agreement.html">PMA Membership Agreement</a></li>
-      <li><a class="policy" href="terms.html">Terms &amp; Disclaimers</a></li>
-      <li><a class="policy" href="privacy.html">Privacy Policy</a></li>
-      <li><a class="policy" href="dmca.html">DMCA Copyright Policy</a></li>
-      <li><a class="policy" href="refund.html">Refund & Risk-Reversal Guarantee</a></li>
-      <li><a class="policy" href="cookies.html">Cookie & Tracking Disclosure</a></li>
-      <li><a class="policy" href="accessibility.html">Accessibility Statement</a></li>
-      <li><a class="policy" href="email-policy.html">Anti-Spam (Email) Policy</a></li>
-    </ul>
+    <p>This page hosts the authoritative, version‑controlled documents that govern membership in the <strong>Rightful Return Private Membership Association</strong>. Please review each item thoroughly and consult independent counsel as needed <em>before</em> signing the PMA Membership Contract.</p>
+
+    <!-- ================= Category 1 ================= -->
+    <section class="category" id="cat1">
+      <h2>Category 1 · PMA Contracts &amp; Signing Documents</h2>
+      <ul class="docs">
+        <li><a class="doc" href="pma-agreement.html">PMA Membership Contract</a></li>
+        <li><a class="doc" href="process-overview.html">Overview of the Process</a></li>
+        <li><a class="doc" href="post-signing-expectations.html">What to Expect After Signing</a></li>
+        <li><a class="doc" href="attorney-instructions.html">Attorney Instructions</a></li>
+      </ul>
+    </section>
+
+    <!-- ================= Category 2 ================= -->
+    <section class="category" id="cat2">
+      <h2>Category 2 · Website Disclaimers &amp; Notices</h2>
+      <ul class="docs">
+        <li><a class="doc" href="terms.html">Terms &amp; Conditions</a></li>
+        <li><a class="doc" href="privacy.html">Privacy Policy</a></li>
+        <li><a class="doc" href="dmca.html">DMCA Copyright Policy</a></li>
+        <li><a class="doc" href="refund.html">Refund &amp; Risk‑Reversal Guarantee</a></li>
+        <li><a class="doc" href="thou-shalt-not-duplicate.html">Thou Shalt NOT Steal by Duplication</a></li>
+        <li><a class="doc" href="legal.html">General Legal Disclaimer</a></li>
+      </ul>
+    </section>
+
+    <!-- ================= Category 3 ================= -->
+    <section class="category" id="cat3">
+      <h2>Category 3 · Additional Compliance &amp; Industry‑Specific Disclaimers</h2>
+      <ul class="docs">
+        <li><a class="doc" href="affiliate-disclaimer.html">Affiliate Disclaimer</a></li>
+        <li><a class="doc" href="testimonial-disclaimer.html">Testimonial Disclaimer</a></li>
+        <li><a class="doc" href="fair-use-disclaimer.html">Fair Use Disclaimer</a></li>
+        <li><a class="doc" href="ugc-disclaimer.html">User‑Generated Content Disclaimer</a></li>
+        <li><a class="doc" href="ai-content-disclaimer.html">AI‑Generated Content Disclaimer</a></li>
+        <!-- Extras we recommend -->
+        <li><a class="doc" href="earnings-disclaimer.html">Earnings &amp; Income Disclaimer</a></li>
+        <li><a class="doc" href="no-professional-advice.html">No Legal / Financial Advice Disclaimer</a></li>
+        <li><a class="doc" href="risk-disclosure.html">General Risk Disclosure Statement</a></li>
+      </ul>
+    </section>
 
     <!-- Vetting / Acknowledgement Form -->
     <section id="ack">
       <h2>Acknowledgement &amp; Confirmation</h2>
-      <p>Please confirm that you have carefully reviewed <strong>all</strong> documents above and had the opportunity to seek independent legal counsel. Submitting this form records your acknowledgement (IP, timestamp) in our secure ledger before you proceed to the membership‑application signature.</p>
-      <form name="acknowledgement"method="POST"action="/review.html"data-netlify="true"netlify-honeypot="bot-field"data-netlify-honeypot="bot-field">
+      <p>After reviewing the above documents, please confirm you have done so. Submitting this form records your acknowledgement (IP &amp; timestamp) in our secure ledger. You will then be redirected to download printable copies while your signature packet is prepared.</p>
+      <form name="acknowledgement" method="POST" action="/review.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="acknowledgement">
-        <input type="hidden" name="doc_version" value="2025‑04‑25">
         <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
         <label>Full Name
           <input type="text" name="full_name" required>
@@ -64,7 +95,7 @@
         <label>Email Address
           <input type="email" name="email" required>
         </label>
-        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have read and understood every document listed above and accept that these govern my prospective membership.</label>
+        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have reviewed every document listed on this page and understand these govern my prospective membership.</label>
         <button type="submit">I Acknowledge &amp; Continue</button>
       </form>
     </section>
