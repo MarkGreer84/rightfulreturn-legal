@@ -1,108 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rightful Return PMA – Legal Library</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rightful Return PMA – Legal Library</title>
   <style>
-    :root {
-      --brand:#06314a;
-      --brand-dark:#021d2e;
-      --accent:#d3a13a;
-      --text:#222;
-      --bg:#f5f7fa;
+    /* ===== Brand palette ===== */
+    :root{
+      --brand:#06314a;--brand-dark:#021d2e;--accent:#d3a13a;--accent2:#ae8319;--accent3:#19645d;--gray-100:#f5f7fa;
     }
     *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    body{margin:0;line-height:1.55;color:var(--text);background:var(--bg);display:flex;flex-direction:column;min-height:100vh}
-    header{background:var(--brand);color:#fff;padding:1.4rem 1.6rem;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-    header h1{margin:0;font-size:1.55rem;font-weight:600;letter-spacing:.3px}
-    main{flex:1;padding:2.2rem 1.6rem;max-width:980px;margin:0 auto}
-    main p{max-width:760px}
-    section.category{margin-top:3rem}
-    section.category h2{margin:.2rem 0 1rem 0;font-size:1.35rem;color:var(--brand)}
-    ul.docs{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:1rem}
-    ul.docs li{flex:1 1 280px}
-    a.doc{display:block;padding:.75rem 1.05rem;border:2px solid var(--brand);border-radius:.45rem;color:var(--brand);text-decoration:none;font-weight:600;transition:.2s ease-in-out;background:#fff;text-align:center}
-    a.doc:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
-    /* acknowledgement */
-    section#ack{margin-top:4rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:1.8rem;max-width:760px}
-    section#ack h2{margin-top:0;color:var(--brand)}
+    body{margin:0;background:var(--gray-100);color:#222;display:flex;flex-direction:column;min-height:100vh}
+
+    /* ===== Top nav ===== */
+    .top-nav{padding:.6rem 1rem;background:#fff;border-bottom:1px solid #e2e5e9;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-weight:700;font-size:1.1rem;color:var(--brand)}
+    .login-btn{padding:.35rem .8rem;border:2px solid var(--brand);border-radius:.3rem;background:transparent;color:var(--brand);font-weight:600;text-decoration:none;transition:.2s}
+    .login-btn:hover{background:var(--brand);color:#fff}
+
+    /* ===== Hero ===== */
+    .hero{padding:3rem 1rem 4rem;background:linear-gradient(135deg,var(--brand) 0%, var(--accent3) 100%);text-align:center;color:#fff}
+    .hero h1{margin:0;font-size:2.25rem;font-weight:700;letter-spacing:.5px}
+    .search{margin-top:1.8rem;max-width:620px;margin-inline:auto;display:flex}
+    .search input{flex:1;padding:.7rem;border:none;border-radius:.3rem 0 0 .3rem;font-size:1rem}
+    .search button{padding:.7rem 1.2rem;border:none;background:var(--accent);color:#fff;font-weight:600;border-radius:0 .3rem .3rem 0;cursor:pointer}
+
+    /* ===== Card grid ===== */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:-2.5rem;padding:0 1rem 4rem}
+    .card{background:#fff;border-radius:.6rem;box-shadow:0 4px 14px rgba(0,0,0,.08);display:flex;flex-direction:column;height:100%}
+    .card-header{background:var(--brand-dark);color:#fff;padding:.7rem 1rem;border-radius:.6rem .6rem 0 0;font-weight:600;display:flex;justify-content:space-between}
+    .card[data-theme="gold"] .card-header{background:var(--accent2)}
+    .card[data-theme="teal"] .card-header{background:var(--accent3)}
+    .card-body{padding:1rem 1rem .8rem;flex:1;display:flex;flex-direction:column}
+    .doc-link{display:block;padding:.4rem 0;color:var(--brand);text-decoration:none;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .card[data-theme="gold"] .doc-link{color:var(--accent2)}
+    .card[data-theme="teal"] .doc-link{color:var(--accent3)}
+    .doc-link:hover{text-decoration:underline}
+    .view-all{margin-top:auto;text-align:center;padding:.55rem;border:2px solid currentColor;border-radius:.35rem;font-weight:600;text-decoration:none;display:inline-block;color:inherit}
+    .view-all:hover{background:currentColor;color:#fff}
+
+    /* ===== Footer & Acknowledgement ===== */
+    footer{background:#e8eaee;padding:2rem 1rem 1.2rem;text-align:center;margin-top:auto}
+    #ack{max-width:600px;margin:0 auto 1.6rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:2rem;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+    #ack h2{margin-top:0;color:var(--brand)}
     label{display:block;margin:.9rem 0;font-weight:600}
-    input[type="text"],input[type="email"]{width:100%;padding:.55rem;border:1px solid #aaa;border-radius:.3rem}
-    button[type="submit"]{margin-top:1.2rem;background:var(--brand);color:#fff;border:none;padding:.75rem 1.4rem;border-radius:.4rem;font-weight:600;cursor:pointer;transition:.2s}
-    button[type="submit"]:hover{background:var(--brand-dark)}
-    footer{background:#e8eaee;text-align:center;padding:.9rem;font-size:.875rem;color:#555;margin-top:auto}
+    input[type=text],input[type=email]{width:100%;padding:.55rem;border:1px solid #bbb;border-radius:.3rem}
+    button[type=submit]{margin-top:1.2rem;background:var(--brand);color:#fff;border:none;padding:.75rem 1.4rem;border-radius:.4rem;font-weight:600;cursor:pointer;transition:.2s}
+    button[type=submit]:hover{background:var(--brand-dark)}
+    .copyright{font-size:.85rem;color:#555}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Rightful Return PMA — Legal & Compliance Library</h1>
-  </header>
-  <main>
-    <p>This page hosts the authoritative, version‑controlled documents that govern membership in the <strong>Rightful Return Private Membership Association</strong>. Please review each item thoroughly and consult independent counsel as needed <em>before</em> signing the PMA Membership Contract.</p>
+  <!-- Top nav -->
+  <div class="top-nav"><div class="logo">Rightful Return</div><a class="login-btn" href="#">Login</a></div>
 
-    <!-- ================= Category 1 ================= -->
-    <section class="category" id="cat1">
-      <h2>Category 1 · PMA Contracts &amp; Signing Documents</h2>
-      <ul class="docs">
-        <li><a class="doc" href="pma-agreement.html">PMA Membership Contract</a></li>
-        <li><a class="doc" href="process-overview.html">Overview of the Process</a></li>
-        <li><a class="doc" href="post-signing-expectations.html">What to Expect After Signing</a></li>
-        <li><a class="doc" href="attorney-instructions.html">Attorney Instructions</a></li>
-      </ul>
-    </section>
+  <!-- Hero -->
+  <div class="hero"><h1>Legal &amp; Compliance Library</h1><div class="search"><input type="search" placeholder="Search documents…" aria-label="search" /><button>Search</button></div></div>
 
-    <!-- ================= Category 2 ================= -->
-    <section class="category" id="cat2">
-      <h2>Category 2 · Website Disclaimers &amp; Notices</h2>
-      <ul class="docs">
-        <li><a class="doc" href="terms.html">Terms &amp; Conditions</a></li>
-        <li><a class="doc" href="privacy.html">Privacy Policy</a></li>
-        <li><a class="doc" href="dmca.html">DMCA Copyright Policy</a></li>
-        <li><a class="doc" href="refund.html">Refund &amp; Risk‑Reversal Guarantee</a></li>
-        <li><a class="doc" href="thou-shalt-not-duplicate.html">Thou Shalt NOT Steal by Duplication</a></li>
-        <li><a class="doc" href="legal.html">General Legal Disclaimer</a></li>
-      </ul>
-    </section>
+  <!-- Category cards -->
+  <div class="grid">
+    <div class="card" data-theme="blue"><div class="card-header"><span>PMA Contracts</span><span>4</span></div><div class="card-body"><a class="doc-link" href="pma-agreement.html">PMA Membership Contract</a><a class="doc-link" href="process-overview.html">Overview of the Process</a><a class="doc-link" href="post-signing-expectations.html">What to Expect After Signing</a><a class="doc-link" href="attorney-instructions.html">Attorney Instructions</a><a class="view-all" href="#">View all</a></div></div>
+    <div class="card" data-theme="gold"><div class="card-header"><span>Disclaimers &amp; Notices</span><span>6</span></div><div class="card-body"><a class="doc-link" href="terms.html">Terms &amp; Conditions</a><a class="doc-link" href="privacy.html">Privacy Policy</a><a class="doc-link" href="dmca.html">DMCA Policy</a><a class="doc-link" href="refund.html">Refund &amp; Guarantee</a><a class="doc-link" href="thou-shalt-not-duplicate.html">No Duplication Notice</a><a class="doc-link" href="legal.html">General Legal Disclaimer</a><a class="view-all" href="#">View all</a></div></div>
+    <div class="card" data-theme="teal"><div class="card-header"><span>Additional Compliance</span><span>8</span></div><div class="card-body"><a class="doc-link" href="affiliate-disclaimer.html">Affiliate Disclaimer</a><a class="doc-link" href="testimonial-disclaimer.html">Testimonial Disclaimer</a><a class="doc-link" href="fair-use-disclaimer.html">Fair Use Disclaimer</a><a class="doc-link" href="ugc-disclaimer.html">User‑Generated Content Disclaimer</a><a class="doc-link" href="ai-content-disclaimer.html">AI Content Disclaimer</a><a class="doc-link" href="earnings-disclaimer.html">Earnings Disclaimer</a><a class="doc-link" href="no-professional-advice.html">No Professional Advice</a><a class="doc-link" href="risk-disclosure.html">General Risk Disclosure</a><a class="view-all" href="#">View all</a></div></div>
+  </div>
 
-    <!-- ================= Category 3 ================= -->
-    <section class="category" id="cat3">
-      <h2>Category 3 · Additional Compliance &amp; Industry‑Specific Disclaimers</h2>
-      <ul class="docs">
-        <li><a class="doc" href="affiliate-disclaimer.html">Affiliate Disclaimer</a></li>
-        <li><a class="doc" href="testimonial-disclaimer.html">Testimonial Disclaimer</a></li>
-        <li><a class="doc" href="fair-use-disclaimer.html">Fair Use Disclaimer</a></li>
-        <li><a class="doc" href="ugc-disclaimer.html">User‑Generated Content Disclaimer</a></li>
-        <li><a class="doc" href="ai-content-disclaimer.html">AI‑Generated Content Disclaimer</a></li>
-        <!-- Extras we recommend -->
-        <li><a class="doc" href="earnings-disclaimer.html">Earnings &amp; Income Disclaimer</a></li>
-        <li><a class="doc" href="no-professional-advice.html">No Legal / Financial Advice Disclaimer</a></li>
-        <li><a class="doc" href="risk-disclosure.html">General Risk Disclosure Statement</a></li>
-      </ul>
-    </section>
-
-    <!-- Vetting / Acknowledgement Form -->
+  <!-- Footer with Acknowledgement -->
+  <footer>
     <section id="ack">
       <h2>Acknowledgement &amp; Confirmation</h2>
-      <p>After reviewing the above documents, please confirm you have done so. Submitting this form records your acknowledgement (IP &amp; timestamp) in our secure ledger. You will then be redirected to download printable copies while your signature packet is prepared.</p>
+      <p>After reviewing the documents above, please confirm. Submission will record your acknowledgement (IP &amp; timestamp) and redirect you to printable copies while your signature packet is prepared.</p>
       <form name="acknowledgement" method="POST" action="/review.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="acknowledgement">
         <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
-        <label>Full Name
-          <input type="text" name="full_name" required>
-        </label>
-        <label>Email Address
-          <input type="email" name="email" required>
-        </label>
-        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have reviewed every document listed on this page and understand these govern my prospective membership.</label>
+        <label>Full Name<input type="text" name="full_name" required></label>
+        <label>Email Address<input type="email" name="email" required></label>
+        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have reviewed and understand all documents listed above.</label>
         <button type="submit">I Acknowledge &amp; Continue</button>
       </form>
     </section>
-
-  </main>
-  <footer>
-    © <span id="year"></span> Rightful Return PMA. All rights reserved.
+    <div class="copyright">© <span id="year"></span> Rightful Return PMA. All rights reserved.</div>
   </footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
