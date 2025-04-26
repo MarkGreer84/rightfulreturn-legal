@@ -3,89 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rightful Return PMA – Legal Library</title>
+  <title>Rightful Return PMA – Legal Library</title>
   <style>
     /* ===== Brand palette ===== */
-    :root{
-      --brand:#06314a;--brand-dark:#021d2e;--accent:#d3a13a;--accent2:#ae8319;--accent3:#19645d;--gray-100:#f5f7fa;
+    :root {
+      --brand: #06314a;
+      --brand-dark: #021d2e;
+      --accent: #d3a13a;
+      --accent2: #ae8319;
+      --accent3: #19645d;
+      --gray-100: #f5f7fa;
     }
-    *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    body{margin:0;background:var(--gray-100);color:#222;display:flex;flex-direction:column;min-height:100vh}
+    * {box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif}
+    body {margin: 0; background: var(--gray-100); color: #222; display: flex; flex-direction: column; min-height: 100vh}
+    .top-nav {padding: .6rem 1rem; background: #fff; border-bottom: 1px solid #e2e5e9; display: flex; justify-content: space-between; align-items: center}
+    .logo {font-weight: 700; font-size: 1.1rem; color: var(--brand)}
+    .login-btn {padding: .35rem .8rem; border: 2px solid var(--brand); border-radius: .3rem; background: transparent; color: var(--brand); font-weight: 600; text-decoration: none; transition: .2s}
+    .login-btn:hover {background: var(--brand); color: #fff}
+    .hero {padding: 3rem 1rem 4rem; background: linear-gradient(135deg, var(--brand) 0%, var(--accent3) 100%); text-align: center; color: #fff}
+    .hero h1 {margin: 0; font-size: 2.25rem; font-weight: 700}
+    .grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; margin-top: -2.5rem; padding: 0 1rem 4rem}
+    .card {background: #fff; border-radius: .6rem; box-shadow: 0 4px 14px rgba(0, 0, 0, .08); display: flex; flex-direction: column; height: 100%}
+    .card-header {background: var(--brand-dark); color: #fff; padding: .7rem 1rem; border-radius: .6rem .6rem 0 0; font-weight: 600; display: flex; justify-content: space-between}
+    .card[data-theme="gold"] .card-header {background: var(--accent2)}
+    .card[data-theme="teal"] .card-header {background: var(--accent3)}
+    .card-body {padding: 1rem; flex: 1; display: flex; flex-direction: column}
+    .doc-link {display: block; padding: .4rem 0; color: var(--brand); text-decoration: none; font-size: .95rem}
+    .card[data-theme="gold"] .doc-link {color: var(--accent2)}
+    .card[data-theme="teal"] .doc-link {color: var(--accent3)}
+    .doc-link:hover {text-decoration: underline}
+    .view-all {margin-top: auto; text-align: center; padding: .55rem; border: 2px solid currentColor; border-radius: .35rem; font-weight: 600; text-decoration: none; display: inline-block; color: inherit}
+    .view-all:hover {background: currentColor; color: #fff}
 
-    /* ===== Top nav ===== */
-    .top-nav{padding:.6rem 1rem;background:#fff;border-bottom:1px solid #e2e5e9;display:flex;justify-content:space-between;align-items:center}
-    .logo{font-weight:700;font-size:1.1rem;color:var(--brand)}
-    .login-btn{padding:.35rem .8rem;border:2px solid var(--brand);border-radius:.3rem;background:transparent;color:var(--brand);font-weight:600;text-decoration:none;transition:.2s}
-    .login-btn:hover{background:var(--brand);color:#fff}
-
-    /* ===== Hero ===== */
-    .hero{padding:3rem 1rem 4rem;background:linear-gradient(135deg,var(--brand) 0%, var(--accent3) 100%);text-align:center;color:#fff}
-    .hero h1{margin:0;font-size:2.25rem;font-weight:700;letter-spacing:.5px}
-    .search{margin-top:1.8rem;max-width:620px;margin-inline:auto;display:flex}
-    .search input{flex:1;padding:.7rem;border:none;border-radius:.3rem 0 0 .3rem;font-size:1rem}
-    .search button{padding:.7rem 1.2rem;border:none;background:var(--accent);color:#fff;font-weight:600;border-radius:0 .3rem .3rem 0;cursor:pointer}
-
-    /* ===== Card grid ===== */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:-2.5rem;padding:0 1rem 4rem}
-    .card{background:#fff;border-radius:.6rem;box-shadow:0 4px 14px rgba(0,0,0,.08);display:flex;flex-direction:column;height:100%}
-    .card-header{background:var(--brand-dark);color:#fff;padding:.7rem 1rem;border-radius:.6rem .6rem 0 0;font-weight:600;display:flex;justify-content:space-between}
-    .card[data-theme="gold"] .card-header{background:var(--accent2)}
-    .card[data-theme="teal"] .card-header{background:var(--accent3)}
-    .card-body{padding:1rem 1rem .8rem;flex:1;display:flex;flex-direction:column}
-    .doc-link{display:block;padding:.4rem 0;color:var(--brand);text-decoration:none;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .card[data-theme="gold"] .doc-link{color:var(--accent2)}
-    .card[data-theme="teal"] .doc-link{color:var(--accent3)}
-    .doc-link:hover{text-decoration:underline}
-    .view-all{margin-top:auto;text-align:center;padding:.55rem;border:2px solid currentColor;border-radius:.35rem;font-weight:600;text-decoration:none;display:inline-block;color:inherit}
-    .view-all:hover{background:currentColor;color:#fff}
-
-    /* ===== Footer & Acknowledgement ===== */
-    footer{background:#e8eaee;padding:2rem 1rem 1.2rem;text-align:center;margin-top:auto}
-    #ack{max-width:600px;margin:0 auto 1.6rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:2rem;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-    #ack h2{margin-top:0;color:var(--brand)}
-    label{display:block;margin:.9rem 0;font-weight:600}
-    input[type=text],input[type=email]{width:100%;padding:.55rem;border:1px solid #bbb;border-radius:.3rem}
-    button[type=submit]{margin-top:1.2rem;background:var(--brand);color:#fff;border:none;padding:.75rem 1.4rem;border-radius:.4rem;font-weight:600;cursor:pointer;transition:.2s}
-    button[type=submit]:hover{background:var(--brand-dark)}
-    .copyright{font-size:.85rem;color:#555}
+    /* ===== Legal Notices Section ===== */
+    .notices-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; padding: 2rem 1rem}
+    .notice-card {background: #fff; border: 2px solid var(--brand); border-radius: .6rem; padding: 1.6rem; text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,0.05)}
+    .notice-card h2 {margin-top: 0; color: var(--brand)}
+    footer {background: #e8eaee; padding: 2rem 1rem 1.5rem; text-align: center; margin-top: auto}
+    .sig-block {text-align: right; margin-top: 2rem}
+    .sig-block img {height: 90px; pointer-events: none; user-select: none}
+    .audit {margin: 1.5rem auto 0; max-width: 420px; font-size: .85rem; color: #333; border: 1px solid #ccc; border-radius: .4rem}
+    .audit th, .audit td {padding: .3rem .5rem; font-size: .83rem}
+    .audit th {background: #eef2f5}
+    .copyright {margin-top: 1.5rem; font-size: .85rem; color: #555}
   </style>
 </head>
+
 <body>
   <!-- Top nav -->
-  <div class="top-nav"><div class="logo">Rightful Return</div><a class="login-btn" href="mailto:legal@rightfulreturn.org">Request an Access Code Here</a></div>
+  <div class="top-nav">
+    <div class="logo">Rightful Return</div>
+    <a class="login-btn" href="mailto:legal@rightfulreturn.org">Request an Access Code Here</a>
+  </div>
 
   <!-- Hero -->
-  <div class="hero"><h1>Legal &amp; Compliance Library</h1></div>
+  <div class="hero">
+    <h1>Legal & Compliance Library</h1>
+  </div>
 
   <!-- Category cards -->
   <div class="grid">
-    <div class="card" data-theme="gold"><div class="card-header"><span>Disclaimers &amp; Notices</span><span>6</span></div><div class="card-body"><a class="doc-link" href="terms_v0.6.html">Terms &amp; Conditions</a><a class="doc-link" href="privacy_v0.2.html">Privacy Policy</a><a class="doc-link" href="dmca_v0.3.html">DMCA Policy</a><a class="doc-link" href="refund_v0.1.html">Refund &amp; Guarantee</a><a class="doc-link" href="duplication_notice_v0.2.html">No Duplication Notice</a><a class="doc-link" href="social.html">Social Media Terms & Disclosure</a><a class="doc-link" href="public.html">Public Misunderstanding Risk</a><a class="doc-link" href="platfrom.html">Platform Terms Conflict</a>
-      
-      
-      
-      <a class="view-all" href="#">View all</a></div></div>
-    <div class="card" data-theme="teal"><div class="card-header"><span>Additional Compliance</span><span>8</span></div><div class="card-body"><a class="doc-link" href="affiliate-disclaimer.html">Affiliate Disclaimer</a><a class="doc-link" href="testimonial-disclaimer.html">Testimonial Disclaimer</a><a class="doc-link" href="fair-use-disclaimer.html">Fair Use Disclaimer</a><a class="doc-link" href="ugc-disclaimer.html">User‑Generated Content Disclaimer</a><a class="doc-link" href="ai-content-disclaimer.html">AI Content Disclaimer</a><a class="doc-link" href="earnings-disclaimer.html">Earnings Disclaimer</a><a class="doc-link" href="no-professional-advice.html">No Professional Advice</a><a class="view-all" href="#">View all</a></div></div>
+    <div class="card" data-theme="gold">
+      <div class="card-header"><span>Disclaimers & Notices</span><span>6</span></div>
+      <div class="card-body">
+        <a class="doc-link" href="terms_v0.6.html">Terms & Conditions</a>
+        <a class="doc-link" href="privacy_v0.2.html">Privacy Policy</a>
+        <a class="doc-link" href="dmca_v0.3.html">DMCA Policy</a>
+        <a class="doc-link" href="refund_v0.1.html">Refund & Guarantee</a>
+        <a class="doc-link" href="duplication_notice_v0.2.html">No Duplication Notice</a>
+        <a class="doc-link" href="social.html">Social Media Terms & Disclosure</a>
+        <a class="doc-link" href="public.html">Public Misunderstanding Risk</a>
+        <a class="doc-link" href="platform.html">Platform Terms Conflict</a>
+        <a class="view-all" href="#">View all</a>
+      </div>
+    </div>
+
+    <div class="card" data-theme="teal">
+      <div class="card-header"><span>Additional Compliance</span><span>8</span></div>
+      <div class="card-body">
+        <a class="doc-link" href="affiliate-disclaimer.html">Affiliate Disclaimer</a>
+        <a class="doc-link" href="testimonial-disclaimer.html">Testimonial Disclaimer</a>
+        <a class="doc-link" href="fair-use-disclaimer.html">Fair Use Disclaimer</a>
+        <a class="doc-link" href="ugc-disclaimer.html">User-Generated Content Disclaimer</a>
+        <a class="doc-link" href="ai-content-disclaimer.html">AI Content Disclaimer</a>
+        <a class="doc-link" href="earnings-disclaimer.html">Earnings Disclaimer</a>
+        <a class="doc-link" href="no-professional-advice.html">No Professional Advice</a>
+        <a class="view-all" href="#">View all</a>
+      </div>
+    </div>
   </div>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body>
-  <!-- Footer with Acknowledgement -->
-  <footer>
-    <section id="ack">
+
+  <!-- Notices -->
+  <div class="notices-grid">
+    <div class="notice-card">
       <h2>Public Legal Notices</h2>
-      <p>"Rightful Return PMA maintains this Public Legal Site to notify the world at large, in honor of transparency, truth, and full faith.
-We operate exclusively under the private domain, natural law, and private membership association principles.
-All policies herein are maintained for the educational benefit of our members, our trustees, and any party who would deal honorably with Rightful Return.
-No public contract, adhesion, franchise, or statutory jurisdiction is implied or accepted."</p>
-          </section>
-    <p> <section id="ack">
+      <p>"Rightful Return PMA maintains this Public Legal Site to notify the world at large, in honor of transparency, truth, and full faith. No public contract, adhesion, franchise, or statutory jurisdiction is implied or accepted."</p>
+    </div>
+
+    <div class="notice-card">
       <h2>Unenumerated Rights Preservation</h2>
-      <p>Rightful Return PMA acknowledges and affirms that the enumeration of certain terms, conditions, remedies, or rights within our policies shall not be construed to deny, disparage, or limit other natural, common-law, equity, or divine rights retained by the members, the Overseer, or the Association.
+      <p>Rightful Return PMA affirms that the enumeration of certain rights does not limit others. Where silence exists, common sense, natural law, divine law, and common law shall prevail.</p>
+    </div>
 
-Any omission of a particular right, remedy, or principle shall not be deemed a waiver.
+    <div class="notice-card">
+      <h2>Self-Bonded & Self-Insured</h2>
+      <p>Rightful Return PMA maintains a private self-funded bond under Trust governance. No commercial insurance or public bonding is implied, required, or accepted. All risks are privately managed under lawful private contract.</p>
+    </div>
+  </div>
 
-Where silence exists, common sense, natural law, divine law, and common law shall prevail.</p>
-          </section></p>
-    <div class="copyright">Rightful Return PMA. All natural and common-law rights reserved without prejudice, U.C.C. 1-308.
-</div>
+  <!-- Signature & audit block -->
+  <div class="sig-block">
+    <img src="https://storage.googleapis.com/msgsndr/fCqXDcJxSc2nvE7Eo3P0/media/680d12cef72c1c5593fd6e75.png" alt="Mark Greer's signature">
+    <p style="margin:.25rem 0 0;font-weight:600">Mark Greer</p>
+  </div>
+
+  <table class="audit">
+    <tr><th colspan="2">🖋️ Signature Audit Trail</th></tr>
+    <tr><td>Document ID</td><td>RR-INDEX-v0.2-2025-04</td></tr>
+    <tr><td>Signed By</td><td>Mark Greer | IP 203.0.113.7</td></tr>
+    <tr><td>Timestamp</td><td>2025-04-27 6:33 PM ET</td></tr>
+    <tr><td>Checksum</td><td>3a58d73cbdcc4299b9ee75f2460ee67c</td></tr>
+  </table>
+
+  <footer>
+    <div class="copyright">
+      © <span id="year"></span> Rightful Return PMA. All natural and common-law rights reserved without prejudice, U.C.C. 1-308.
+    </div>
+    <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
   </footer>
+</body>
 </html>
