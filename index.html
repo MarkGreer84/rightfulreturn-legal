@@ -81,5 +81,22 @@
     <div class="copyright">© <span id="year"></span> Rightful Return PMA. All rights reserved.</div>
   </footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+  const input = document.querySelector('.search input');
+  const links = document.querySelectorAll('.doc-link');
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    links.forEach(link => {
+      const text = (link.dataset.key || link.textContent).toLowerCase();
+      link.parentElement.style.display = q && !text.includes(q) ? 'none' : '';
+    });
+    // collapse empty cards
+    document.querySelectorAll('.card').forEach(card => {
+      const hidden = [...card.querySelectorAll('li')].every(li => li.style.display === 'none');
+      card.style.display = hidden ? 'none' : '';
+    });
+  });
+</script>
 </body>
 </html>
