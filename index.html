@@ -59,27 +59,9 @@
 
   <!-- Category cards -->
   <div class="grid">
-    <div class="card" data-theme="blue"><div class="card-header"><span>PMA Contracts</span><span>4</span></div><div class="card-body"><a class="doc-link" href="https://rightfulreturn.org/pma-contract"> 🔒 PMA Membership Contract</a><a class="doc-link" href="process-overview.html">🔒 Overview of the Process</a><a class="doc-link" href="post-signing-expectations.html">🔒 What to Expect After Signing</a><a class="doc-link" href="attorney-instructions.html">🔒 Attorney Instructions</a><a class="view-all" href="#">View all</a></div></div>
     <div class="card" data-theme="gold"><div class="card-header"><span>Disclaimers &amp; Notices</span><span>6</span></div><div class="card-body"><a class="doc-link" href="terms.html">Terms &amp; Conditions</a><a class="doc-link" href="privacy.html">Privacy Policy</a><a class="doc-link" href="dmca.html">DMCA Policy</a><a class="doc-link" href="refund.html">Refund &amp; Guarantee</a><a class="doc-link" href="thou-shalt-not-duplicate.html">No Duplication Notice</a><a class="doc-link" href="legal.html">General Legal Disclaimer</a><a class="view-all" href="#">View all</a></div></div>
     <div class="card" data-theme="teal"><div class="card-header"><span>Additional Compliance</span><span>8</span></div><div class="card-body"><a class="doc-link" href="affiliate-disclaimer.html">Affiliate Disclaimer</a><a class="doc-link" href="testimonial-disclaimer.html">Testimonial Disclaimer</a><a class="doc-link" href="fair-use-disclaimer.html">Fair Use Disclaimer</a><a class="doc-link" href="ugc-disclaimer.html">User‑Generated Content Disclaimer</a><a class="doc-link" href="ai-content-disclaimer.html">AI Content Disclaimer</a><a class="doc-link" href="earnings-disclaimer.html">Earnings Disclaimer</a><a class="doc-link" href="no-professional-advice.html">No Professional Advice</a><a class="doc-link" href="risk-disclosure.html">General Risk Disclosure</a><a class="view-all" href="#">View all</a></div></div>
   </div>
-
-  <!-- Footer with Acknowledgement -->
-  <footer>
-    <section id="ack">
-      <h2>Acknowledgement &amp; Confirmation</h2>
-      <p>After reviewing the documents above, please confirm. Submission will record your acknowledgement (IP &amp; timestamp) and redirect you to printable copies while your signature packet is prepared.</p>
-      <form name="acknowledgement" method="POST" action="/review.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="acknowledgement">
-        <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
-        <label>Full Name<input type="text" name="full_name" required></label>
-        <label>Email Address<input type="email" name="email" required></label>
-        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have reviewed and understand all documents listed above.</label>
-        <button type="submit">I Acknowledge &amp; Continue</button>
-      </form>
-    </section>
-    <div class="copyright">© <span id="year"></span> Rightful Return PMA. All rights reserved.</div>
-  </footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
