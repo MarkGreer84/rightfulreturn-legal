@@ -7,15 +7,13 @@
 <!-- ===== shared brand palette ===== -->
 <style>
 :root{
-  --brand:#06314a;--brand-dark:#021d2e;--accent:#d3a13a;
-  --accent3:#19645d;--gray-100:#f5f7fa;
+  --brand:#06314a;--accent3:#19645d;--gray-100:#f5f7fa;
 }
 *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 body{margin:0;background:var(--gray-100);color:#222;line-height:1.55}
 header{padding:3rem 1rem 4rem;background:linear-gradient(135deg,var(--brand)0%,var(--accent3)100%);color:#fff;text-align:center}
 header h1{margin:0;font-size:2.35rem;font-weight:700}
-main{max-width:880px;margin:-2.5rem auto 4rem;background:#fff;border-radius:.6rem;
-      box-shadow:0 4px 14px rgba(0,0,0,.08);padding:2.4rem 2rem}
+main{max-width:880px;margin:-2.5rem auto 4rem;background:#fff;border-radius:.6rem;box-shadow:0 4px 14px rgba(0,0,0,.08);padding:2.4rem 2rem}
 h2{color:var(--brand);margin-top:2rem;margin-bottom:.6rem;font-size:1.35rem}
 ul,ol{padding-left:1.2rem}
 table{width:100%;border-collapse:collapse;margin-top:.8rem}
@@ -41,10 +39,10 @@ footer a{color:var(--brand);text-decoration:none;font-weight:600}
 
 <main>
 
-<h2>1&nbsp;📛&nbsp;Who This Policy Covers</h2>
+<h2 id="sec-1">1&nbsp;📛&nbsp;Who This Policy Covers</h2>
 <p>Visitors, prospective members, and signed members interacting with any sub-domain of <strong>rightfulreturn.org</strong> or our white-labeled Excess Elite GoHighLevel instance.</p>
 
-<h2>2&nbsp;🔍&nbsp;What Personal Data We Collect</h2>
+<h2 id="sec-2">2&nbsp;🔍&nbsp;What Personal Data We Collect</h2>
 <table>
 <tr><th>Data Point</th><th>When Collected</th><th>Why</th><th>Retention</th></tr>
 <tr><td>Full name &amp; email</td><td>Netlify forms, GetResponse opt-ins, PMA contracts</td><td>Confirmations; private notifications</td><td>90 days in dashboards, then vaulted in NordLocker until deletion request</td></tr>
@@ -53,10 +51,10 @@ footer a{color:var(--brand);text-decoration:none;font-weight:600}
 </table>
 <p><strong>We do not</strong> run analytics pixels, retargeting beacons, or A/B-testing cookies.</p>
 
-<h2>3&nbsp;🍪&nbsp;Cookies &amp; Tracking</h2>
-<p>This site sets <strong>no first-party cookies</strong> except what GoHighLevel requires for session integrity. Third-party embeds may set their own cookies; they control those cookies, not us.</p>
+<h2 id="sec-3">3&nbsp;🍪&nbsp;Cookies &amp; Tracking</h2>
+<p>No first-party cookies beyond GoHighLevel session cookies. Third-party embeds may set their own cookies; they control those cookies, not us.</p>
 
-<h2>4&nbsp;🔄&nbsp;Third-Party Processors</h2>
+<h2 id="sec-4">4&nbsp;🔄&nbsp;Third-Party Processors</h2>
 <ul>
   <li>Netlify — hosting &amp; form capture</li>
   <li>Approve Me / WP Signature — digital contracts</li>
@@ -65,62 +63,75 @@ footer a{color:var(--brand);text-decoration:none;font-weight:600}
 </ul>
 <p>Each provider follows its own privacy policy. <strong>Rightful Return disclaims liability</strong> for their independent practices.</p>
 
-<h2>5&nbsp;🗄️&nbsp;Storage, Security &amp; Retention</h2>
+<h2 id="sec-5">5&nbsp;🗄️&nbsp;Storage, Security &amp; Retention</h2>
 <ul>
-  <li>Working data lives in encrypted dashboards for ≤ 90 days.</li>
-  <li>After 90 days we export to <strong>NordLocker</strong> (zero-knowledge encrypted cloud vault).</li>
+  <li>Working data lives in encrypted dashboards for ≤ 90 days, then exports to <strong>NordLocker</strong> (zero-knowledge encrypted cloud vault).</li>
   <li>No payment data ever touches our servers.</li>
 </ul>
 <p>🔑 <strong>Lawful basis:</strong> contractual necessity (membership) and legitimate interest (site security).<br>
 ⚠️ <strong>Breach notice:</strong> we will notify affected members within <strong>72 hours</strong> of any confirmed data breach.</p>
 
-<h2>6&nbsp;🔑&nbsp;Your Rights &amp; Requests</h2>
+<p><strong>Bailment of Data 📜</strong><br>
+Personal information you provide remains <em>your</em> property. Rightful Return holds it solely as <em>bailee</em> for the limited purpose of administering your membership; no title or license passes to us.</p>
+
+<h2 id="sec-6">6&nbsp;🔑&nbsp;Your Rights &amp; Requests</h2>
 <ol>
   <li>Email ✉️ <code>legal@rightfulreturn.org</code> with subject “Data Request.”</li>
   <li>We verify identity (name + contract ID or signature hash).</li>
   <li>Valid requests are fulfilled within 30 days.</li>
-  <li>We honor U.S. common-law expectations and expressly object to GDPR/CCPA extraterritorial reach.</li>
+  <li>We honor U.S. common-law privacy expectations and expressly object to GDPR/CCPA extraterritorial reach.</li>
 </ol>
-<p>  <div class="top-nav"><div class="logo">Need a Email a Request: </div><a class="login-btn" href="mailto:legal@rightfulreturn.org">Email To This Address</a></div></p>
-<h2>7&nbsp;⚖️&nbsp;Jurisdiction &amp; Dispute Resolution</h2>
+
+<h2 id="sec-7">7&nbsp;⚖️&nbsp;Jurisdiction &amp; Dispute Resolution</h2>
 <p>Privacy disputes are governed by private contract, natural law, and the common law of <strong>Tennessee or Texas</strong> (venue at our election) and resolved solely through binding private arbitration.</p>
 
-<h2>8&nbsp;🚫&nbsp;Notice to Government Actors</h2>
+<h2 id="sec-8">8&nbsp;🚫&nbsp;Notice to Government Actors</h2>
 <ol>
   <li>Any demand for data without a constitutionally valid warrant is <em>ultra vires</em>.</li>
-  <li><strong>Liquidated-Damages Escalator (enforceable to the fullest extent permitted by law):</strong><br>
-      • 1st breach — ₿ 1 or 2 Eagle coins.<br>
-      • Each additional breach within 12 months doubles the fee.<br>
-      • Payment due within 10 calendar days; non-payment proceeds to private arbitration.</li>
+  <li><strong>Liquidated-Damages Escalator</strong> (enforceable to the fullest extent permitted by law):<br>
+     • 1st breach — ₿ 1 or 2 Eagle coins;<br>
+     • Each additional breach within 12 months doubles the fee;<br>
+     • Payment due within 10 calendar days; non-payment proceeds to private arbitration.</li>
   <li>Personal liability attaches when officials act after notice.</li>
   <li>Venue: private common-law forum in TN or TX; FAA governs confirmation.</li>
+  <li><em>Notice to agent is notice to principal</em>; service on any Rightful Return officer or designated email binds the entire Association.</li>
+  <li>In addition to damages, we may seek equitable relief—including injunctions and private liens—to prevent or remedy any unauthorized data seizure.</li>
 </ol>
 
-<h2>9&nbsp;🏴&nbsp;Why We Reject California Statutes</h2>
+<h2 id="sec-9">9&nbsp;🏴&nbsp;Why We Reject California Statutes</h2>
 <ol>
-  <li>Rightful Return has no domicile or operations in California; CCPA has no lawful reach here.</li>
+  <li>No domicile or operations in California; CCPA has no lawful reach here.</li>
   <li>CCPA imposes burden without benefit to a non-commercial PMA.</li>
   <li>First-Amendment free-association rights supersede conflicting state statutes.</li>
   <li>California visitors may browse but by doing so accept this Privacy Policy as the sole governing contract; if that displeases you, please leave.</li>
   <li>As a courtesy, we honor Section 6 access/deletion requests when feasible.</li>
 </ol>
 
-<h2>10&nbsp;⚠️&nbsp;No Warranty &amp; Limitation of Liability</h2>
+<h2 id="sec-10">10&nbsp;⚠️&nbsp;No Warranty &amp; Limitation of Liability</h2>
 <p>Site provided “as-is.” 🛑 <strong>Our liability = 0 USD.</strong> Perfect security does not exist.</p>
 
-<h2>11&nbsp;🔄&nbsp;Policy Updates &amp; Version Control</h2>
-<p>Updates publish via GitHub → Netlify commits; the “Effective Date” at top changes each time. Continued browsing equals acceptance.</p>
+<h2 id="sec-11">11&nbsp;📜&nbsp;Common-Law Principles</h2>
+<ul>
+  <li><strong>Right to Be Let Alone</strong> — We rely on the historic common-law privacy right articulated by Warren &amp; Brandeis (1890).</li>
+  <li><strong>Equitable Remedies</strong> — We may pursue injunction or other equitable relief where monetary damages are inadequate.</li>
+  <li><strong>Member-Data Lien</strong> — Failure to return or expunge member data upon lawful demand creates a consensual lien against the offending party’s assets within the private domain.</li>
+</ul>
 
-<h2>12&nbsp;📖&nbsp;Glossary</h2>
+<h2 id="sec-12">12&nbsp;🔄&nbsp;Policy Updates &amp; Version Control</h2>
+<p>Updates published via GitHub → Netlify commits; the Effective Date at top changes each time. Continued browsing equals acceptance.</p>
+
+<h2 id="sec-13">13&nbsp;📖&nbsp;Glossary</h2>
 <table>
 <tr><th>Term</th><th>Meaning</th></tr>
 <tr><td>NordLocker</td><td>Zero-knowledge encrypted cloud vault</td></tr>
-<tr><td>Ultra Vires</td><td>“Beyond lawful power”—overstepping authority</td></tr>
+<tr><td>Bailment</td><td>Temporary transfer of possession, not ownership</td></tr>
+<tr><td>Ultra Vires</td><td>Beyond lawful power—overstepping authority</td></tr>
 <tr><td>Liquidated Damages</td><td>Pre-agreed fee for breaking a contract term</td></tr>
+<tr><td>Equity</td><td>Fairness-based remedies where money alone is insufficient</td></tr>
 <tr><td>Browse-Wrap Consent</td><td>Using a site with conspicuous terms = acceptance</td></tr>
 </table>
 
-<!-- Signature block -->
+<!-- Signature & audit -->
 <div class="sig-wrapper">
   <div class="sig-block">
     <img src="https://storage.googleapis.com/msgsndr/fCqXDcJxSc2nvE7Eo3P0/media/680d12cef72c1c5593fd6e75.png"
@@ -129,9 +140,9 @@ footer a{color:var(--brand);text-decoration:none;font-weight:600}
   </div>
   <table class="audit">
     <tr><th colspan="2">🖋️ Signature Audit Trail</th></tr>
-    <tr><td>Document ID</td><td>RR-PP-v0.3-2025-04</td></tr>
-    <tr><td>Signed By</td><td>Mark Greer | IP 203.0.113.7</td></tr>
-    <tr><td>Timestamp</td><td>2025-04-27 11:40 AM ET</td></tr>
+    <tr><td>Document ID</td><td>RR-PP-v0.4-2025-04</td></tr>
+    <tr><td>Signed By</td><td>Mark Greer&nbsp;|&nbsp;IP 203.0.113.7</td></tr>
+    <tr><td>Timestamp</td><td>2025-04-27 11:55 AM ET</td></tr>
     <tr><td>Checksum</td><td>8d6b31e77d9e4c5d0ad3e1efb0d2c6f8</td></tr>
   </table>
 </div>
@@ -140,7 +151,8 @@ footer a{color:var(--brand);text-decoration:none;font-weight:600}
 
 <footer>
   © <span id="yr"></span> Rightful Return PMA. All rights reserved. &nbsp;|&nbsp;
-  <a href="privacy.v03.html">Privacy Policy</a>
+  <a href="terms.html">Terms&nbsp;&amp;&nbsp;Conditions</a> &nbsp;|&nbsp;
+  <a href="privacy.v04.html">Privacy&nbsp;Policy</a>
 </footer>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
