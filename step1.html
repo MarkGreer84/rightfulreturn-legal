@@ -3,87 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rightful Return PMA – Acknowledgement & Confirmation</title>
+  <title>Rightful Return PMA – Acknowledgement & Confirmation</title>
   <style>
-    /* ===== Brand palette ===== */
-    :root{
-      --brand:#06314a;--brand-dark:#021d2e;--accent:#d3a13a;--accent2:#ae8319;--accent3:#19645d;--gray-100:#f5f7fa;
+    :root {
+      --brand: #06314a;
+      --brand-dark: #021d2e;
+      --accent: #d3a13a;
+      --accent2: #ae8319;
+      --accent3: #19645d;
+      --gray-100: #f5f7fa;
     }
-    *{box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    body{margin:0;background:var(--gray-100);color:#222;display:flex;flex-direction:column;min-height:100vh}
-
-    /* ===== Top nav ===== */
-    .top-nav{padding:.6rem 1rem;background:#fff;border-bottom:1px solid #e2e5e9;display:flex;justify-content:space-between;align-items:center}
-    .logo{font-weight:700;font-size:1.1rem;color:var(--brand)}
-    .login-btn{padding:.35rem .8rem;border:2px solid var(--brand);border-radius:.3rem;background:transparent;color:var(--brand);font-weight:600;text-decoration:none;transition:.2s}
-    .login-btn:hover{background:var(--brand);color:#fff}
-
-    /* ===== Hero ===== */
-    .hero{padding:3rem 1rem 4rem;background:linear-gradient(135deg,var(--brand) 0%, var(--accent3) 100%);text-align:center;color:#fff}
-    .hero h1{margin:0;font-size:2.25rem;font-weight:700;letter-spacing:.5px}
-    .search{margin-top:1.8rem;max-width:620px;margin-inline:auto;display:flex}
-    .search input{flex:1;padding:.7rem;border:none;border-radius:.3rem 0 0 .3rem;font-size:1rem}
-    .search button{padding:.7rem 1.2rem;border:none;background:var(--accent);color:#fff;font-weight:600;border-radius:0 .3rem .3rem 0;cursor:pointer}
-
-    /* ===== Card grid ===== */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:-2.5rem;padding:0 1rem 4rem}
-    .card{background:#fff;border-radius:.6rem;box-shadow:0 4px 14px rgba(0,0,0,.08);display:flex;flex-direction:column;height:100%}
-    .card-header{background:var(--brand-dark);color:#fff;padding:.7rem 1rem;border-radius:.6rem .6rem 0 0;font-weight:600;display:flex;justify-content:space-between}
-    .card[data-theme="gold"] .card-header{background:var(--accent2)}
-    .card[data-theme="teal"] .card-header{background:var(--accent3)}
-    .card-body{padding:1rem 1rem .8rem;flex:1;display:flex;flex-direction:column}
-    .doc-link{display:block;padding:.4rem 0;color:var(--brand);text-decoration:none;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .card[data-theme="gold"] .doc-link{color:var(--accent2)}
-    .card[data-theme="teal"] .doc-link{color:var(--accent3)}
-    .doc-link:hover{text-decoration:underline}
-    .view-all{margin-top:auto;text-align:center;padding:.55rem;border:2px solid currentColor;border-radius:.35rem;font-weight:600;text-decoration:none;display:inline-block;color:inherit}
-    .view-all:hover{background:currentColor;color:#fff}
-
-    /* ===== Footer & Acknowledgement ===== */
-    footer{background:#e8eaee;padding:2rem 1rem 1.2rem;text-align:center;margin-top:auto}
-    #ack{max-width:600px;margin:0 auto 1.6rem;background:#fff;border:2px solid var(--brand);border-radius:.6rem;padding:2rem;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-    #ack h2{margin-top:0;color:var(--brand)}
-    label{display:block;margin:.9rem 0;font-weight:600}
-    input[type=text],input[type=email]{width:100%;padding:.55rem;border:1px solid #bbb;border-radius:.3rem}
-    button[type=submit]{margin-top:1.2rem;background:var(--brand);color:#fff;border:none;padding:.75rem 1.4rem;border-radius:.4rem;font-weight:600;cursor:pointer;transition:.2s}
-    button[type=submit]:hover{background:var(--brand-dark)}
-    .copyright{font-size:.85rem;color:#555}
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: var(--gray-100);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .top-nav {
+      padding: 0.6rem 1rem;
+      background: #fff;
+      border-bottom: 1px solid #e2e5e9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--brand);
+    }
+    .login-btn {
+      padding: 0.35rem 0.8rem;
+      border: 2px solid var(--brand);
+      border-radius: 0.3rem;
+      background: transparent;
+      color: var(--brand);
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .login-btn:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+    .hero {
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--accent3) 100%);
+      text-align: center;
+      color: #fff;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .acknowledgement {
+      max-width: 720px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      border: 2px solid var(--brand);
+    }
+    .acknowledgement h2 {
+      color: var(--brand);
+      margin-top: 0;
+    }
+    .acknowledgement p {
+      line-height: 1.6;
+    }
+    .acknowledgement ul {
+      margin: 1rem 0;
+      padding-left: 1.2rem;
+    }
+    .acknowledgement ul li {
+      margin-bottom: 0.6rem;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.4rem;
+      font-weight: 600;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #bbb;
+      border-radius: 0.4rem;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.4rem;
+    }
+    button[type="submit"] {
+      margin-top: 1.5rem;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 0.4rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: var(--brand-dark);
+    }
+    footer {
+      background: #e8eaee;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: #555;
+    }
   </style>
-<script type='text/javascript' nonce='EMR0jUgwTS2RQAOHto4QJQ==' src='https://gtxm1074.siteground.biz/WSjr1dzGnYzgOaYLJV58gGjWZ2pMbeWnIFFq91cktRdKwI8w7bh8ixatbt2yeb4AeYV5UTR8qlWxLsM-vsq4lg=='></script></head>
+</head>
 <body>
-  <!-- Top nav -->
-  <div class="top-nav"><div class="logo">Rightful Return</div><a class="login-btn" href="mailto:legal@rightfulreturn.org">Request an Access Code Here</a></div>
 
-  <!-- Hero -->
-  <div class="hero"><h1>PMA Jurisdiction Acknowledgement & Confirmation</h1></div>
-
-  <!-- Category cards -->
-  <div class="grid">
-    <div class="card" data-theme="blue"><div class="card-header"><span>PMA Contracts</span><span>4</span></div><div class="card-body">  <a class="dl" href="/pdfs/pma-agreement.pdf"   download>📘 PMA Membership Agreement</a>
-  <a class="dl" href="/pdfs/terms.pdf"            download>📜 Terms & Disclaimers</a>
-  <a class="dl" href="/pdfs/privacy.pdf"          download>🔐 Privacy Policy</a>
-  <a class="dl" href="/pdfs/dmca.pdf"             download>🛑 4. DMCA Policy</a>
-  <a class="dl" href="/pdfs/refund.pdf"           download>💸 Refund & Guarantee Policy</a>
-    <a class="dl" href="/pdfs/dis_not.pdf"           download>📚 Disclaimers & Notices Overview</a>
-    <a class="dl" href="/pdfs/xxx.pdf"           download>🧭 Additional Compliance Overview</a>
-      <a class="dl" href="/pdfs/xxx.pdf"           download>📖 Attorney Instructions</a>
-    <!-- Footer with Acknowledgement -->
-  <footer>
-    <section id="ack">
-      <h2>Acknowledgement &amp; Confirmation</h2>
-      <p>After reviewing the documents above, please click the confirm. Submission will record your acknowledgement (IP &amp; timestamp) and redirect you to printable copies while your signature packet is prepared.</p>
-      <form name="acknowledgement" method="POST" action="/review.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="acknowledgement">
-        <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
-        <label>Full Name<input type="text" name="full_name" required></label>
-        <label>Email Address<input type="email" name="email" required></label>
-        <label><input type="checkbox" name="agree" value="yes" required> I confirm I have reviewed and understand all documents listed above.</label>
-        <button type="submit">I Acknowledge &amp; Continue</button>
-      </form>
-    </section>
-    <div class="copyright"> <span id="year"></span> Rightful Return PMA. All natural and common-law rights reserved without prejudice, U.C.C. 1-308.
+<div class="top-nav">
+  <div class="logo">Rightful Return</div>
+  <a class="login-btn" href="mailto:legal@rightfulreturn.org">Need Help? Email Legal Team</a>
 </div>
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<div class="hero">
+  <h1>PMA Acknowledgement & Confirmation</h1>
+</div>
+
+<section class="acknowledgement">
+  <h2>Step 1 – Read Before You Join</h2>
+  <p>To protect your rights and ours, and to walk in truth and trust, please take the time to read these sacred documents carefully. These are not public terms. This is a private invitation into a spiritual and educational fellowship. We ask that you reflect on the material, consult your conscience, and seek private legal counsel if needed.</p>
+  
+  <p><strong>You must review the following documents:</strong></p>
+  <ul>
+    <li><a href="/pdfs/pma-agreement.pdf" target="_blank">📜 PMA Membership Agreement</a></li>
+    <li><a href="/pdfs/terms.pdf" target="_blank">⚖️ Terms & Disclaimers</a></li>
+    <li><a href="/pdfs/privacy.pdf" target="_blank">🔐 Privacy Policy</a></li>
+    <li><a href="/pdfs/dmca.pdf" target="_blank">🛡️ DMCA Policy</a></li>
+    <li><a href="/pdfs/refund.pdf" target="_blank">💰 Refund & Guarantee</a></li>
+    <li><a href="/pdfs/disclaimers.pdf" target="_blank">📘 Disclaimers & Notices Overview</a></li>
+    <li><a href="/pdfs/compliance.pdf" target="_blank">📖 Additional Compliance Overview</a></li>
+  </ul>
+
+  <p>After reviewing, please complete the acknowledgment below to begin your 48-hour cooling-off period and receive your personalized PMA contract.</p>
+
+  <form name="acknowledgement" method="POST" action="/review.html" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="acknowledgement">
+    <p style="display:none">
+      <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+    </p>
+    <label>Full Name
+      <input type="text" name="full_name" required>
+    </label>
+    <label>Email Address
+      <input type="email" name="email" required>
+    </label>
+    <label>
+      <input type="checkbox" name="agree" value="yes" required>
+      I confirm I have reviewed all of the documents listed above, understand this is a private agreement, and wish to proceed.
+    </label>
+    <button type="submit">I Acknowledge & Continue</button>
+  </form>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Rightful Return PMA. All natural and common-law rights reserved without prejudice. U.C.C. 1-308.
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
